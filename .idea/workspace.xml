@@ -21,10 +21,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09391304">
+            <state vertical-scroll-proportion="-51.128204">
               <caret line="134" column="124" selection-start-line="134" selection-start-column="124" selection-end-line="134" selection-end-column="124" />
               <folding>
                 <marker date="1468686703837" expanded="true" signature="2906:2942" placeholder="..." />
@@ -33,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="31.615385">
-              <caret line="73" column="101" selection-start-line="73" selection-start-column="101" selection-end-line="73" selection-end-column="101" />
+            <state vertical-scroll-proportion="2.492174">
+              <caret line="79" column="76" selection-start-line="79" selection-start-column="76" selection-end-line="79" selection-end-column="76" />
               <folding>
                 <element signature="e#40#62#0#PHP" expanded="true" />
               </folding>
@@ -97,8 +97,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="85" />
-    <option name="y" value="65" />
+    <option name="x" value="-35" />
+    <option name="y" value="126" />
     <option name="width" value="1934" />
     <option name="height" value="804" />
   </component>
@@ -437,7 +437,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="85" y="65" width="1934" height="804" extended-state="1" />
+    <frame x="-35" y="126" width="1934" height="804" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19014084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -572,22 +572,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="31.615385">
-          <caret line="73" column="101" selection-start-line="73" selection-start-column="101" selection-end-line="73" selection-end-column="101" />
+        <state vertical-scroll-proportion="-51.128204">
+          <caret line="134" column="124" selection-start-line="134" selection-start-column="124" selection-end-line="134" selection-end-column="124" />
           <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
+            <marker date="1468686703837" expanded="true" signature="2906:2942" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09391304">
-          <caret line="134" column="124" selection-start-line="134" selection-start-column="124" selection-end-line="134" selection-end-column="124" />
+        <state vertical-scroll-proportion="2.492174">
+          <caret line="79" column="76" selection-start-line="79" selection-start-column="76" selection-end-line="79" selection-end-column="76" />
           <folding>
-            <marker date="1468686703837" expanded="true" signature="2906:2942" placeholder="..." />
+            <element signature="e#40#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

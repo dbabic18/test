@@ -51,7 +51,7 @@ class DefaultController extends Controller
         $response->headers->set('Content-Type', 'text/event-stream');
 
         $pool    = new Pool($client, $requests($urlsArray), [
-            'concurency' => 5,
+            'concurency' => 1000,
             'fulfilled'  => function ($response, $index) use ($urlsDone, $urlsArray, $initNum, $urlsNum){
                 global $urlsDone;
                 sleep(2);
@@ -63,7 +63,7 @@ class DefaultController extends Controller
                 //$responseData = array("url" => $urlsArray[$index], "status" => $status, "length" => $length, "urlsDone" => $urlsDone);
                 echo "<h6>";
                 echo '*'.$initNum.'* ';
-                echo "url: ".$urlsArray[$index]."status: ".$status."length: ".$length."urlsDone: ".$urlsDone.'/'.$urlsNum."</h6>";
+                echo "url: ".$urlsArray[$index]." status: ".$status." length: ".$length." urlsDone: ".$urlsDone.'/'.$urlsNum."</h6>";
                 echo PHP_EOL;
                 ob_flush();
                 flush();
@@ -77,7 +77,7 @@ class DefaultController extends Controller
                 $urlsDone = $urlsDone + 1;
                 echo "<h6>";
                 echo '*'.$initNum.'* ';
-                echo "url: ".$urlsArray[$index]."status: ERROR invalid URL".$urlsDone.'/'.$urlsNum."</h6>";
+                echo "url: ".$urlsArray[$index]." status: ERROR invalid URL ".$urlsDone.'/'.$urlsNum."</h6>";
                 ob_flush();
                 flush();
 //                    $response1->send();
@@ -86,15 +86,11 @@ class DefaultController extends Controller
             }
         ]);
 
-        $response->setCallback(function () use ($client, $requests, $urlsArray, $urlsDone, $pool) {
-
-
+        $response->setCallback(function () {
 //            ob_flush();
 //            flush();
-
 //            echo "streaming..";
 //            var_dump() $results;
-
         });
         $promise = $pool->promise();
         $results = \GuzzleHttp\Promise\settle($promise)->wait();
