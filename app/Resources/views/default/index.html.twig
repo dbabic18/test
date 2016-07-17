@@ -37,6 +37,7 @@
 
         p {
             margin: 0 0 1em 0;
+            font-size: 14px;
         }
 
         a {
@@ -147,7 +148,7 @@
                 if (xhr.readyState === 3) {
                     console.log("response");
 //                    data = JSON.parse(xhr.responseText);
-
+                    xhr.getResponseHeader('');
                     console.log(initNum);
 
 
