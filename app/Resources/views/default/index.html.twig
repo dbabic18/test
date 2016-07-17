@@ -3,13 +3,11 @@
 {% block body %}
     <div id="wrapper">
         <div id="container">
-
             <form action="javascript:logTest()">
                 <textarea id="urlTextArea"></textarea>
                 <input type="submit">
             </form>
-            <div id="statusList"><p>status je:</p></div>
-            {#<div id="progress"><p>status je:</p></div>#}
+            <div id="statusList"><h6>status:</h6></div>
         </div>
     </div>
 {% endblock %}
@@ -20,45 +18,20 @@
             background: #F5F5F5;
             font: 18px/1.5 sans-serif;
         }
-
-        h1, h2 {
-            line-height: 1.2;
-            margin: 0 0 .5em;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        h2 {
-            font-size: 21px;
-            margin-bottom: 1em;
-        }
-
         p {
             margin: 0 0 1em 0;
             font-size: 14px;
         }
-
-        a {
-            color: #0000F0;
+        h4{
+            color: dimgray;
+            text-decoration: underline;
+            margin: 0;
+            padding: 0;
         }
-
-        a:hover {
-            text-decoration: none;
-        }
-
-        code {
-            background: #F5F5F5;
-            max-width: 100px;
-            padding: 2px 6px;
-            word-wrap: break-word;
-        }
-
         #wrapper {
             background: #FFF;
             margin: 1em auto;
-            max-width: 800px;
+            max-width: 1100px;
             width: 95%;
         }
 
@@ -66,104 +39,46 @@
             padding: 2em;
         }
 
-        #welcome, #status {
-            margin-bottom: 2em;
-        }
-
-        #welcome h1 span {
+        #statusP {
             display: block;
-            font-size: 75%;
         }
 
-        #icon-status, #icon-book {
-            float: left;
-            height: 64px;
-            margin-right: 1em;
-            margin-top: -4px;
-            width: 64px;
+        #urlTextArea {
+            width: 300px;
+            height: 150px;
         }
-
-        #icon-book {
-            display: none;
+        .urlsDone{
+            color: green;
         }
-
-        @media (min-width: 768px) {
-            #wrapper {
-                width: 80%;
-                margin: 2em auto;
-            }
-
-            #icon-book {
-                display: inline-block;
-            }
-
-            #status a, #next a {
-                display: block;
-            }
-
-            @-webkit-keyframes fade-in {
-                0% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            @keyframes fade-in {
-                0% {
-                    opacity: 0;
-                }
-                100% {
-                    opacity: 1;
-                }
-            }
-            .sf-toolbar {
-                opacity: 0;
-                -webkit-animation: fade-in 1s .2s forwards;
-                animation: fade-in 1s .2s forwards;
-            }
-            #statusP{
-                display: block;
-            }
+        .redirect{
+            color: royalblue;
+        }
+        .urlError{
+            color: red;
         }
     </style>
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
         var initNum = 0;
-        function logTest(){
+        function logTest() {
             initNum = initNum + 1;
-            $('#statusList').append("<div id=listItem_"+initNum+" style='border: 1px solid black; margin: 5px'><p>loading...</p></div>");
+            $('#statusList').append("<div id=listItem_" + initNum + " style='border: 1px solid black; margin: 5px; padding: 5px'><p>loading...</p></div>");
             var urls = $('#urlTextArea').val().split('\n');
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "{{ path('ajaxurl') }}", true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhr.send("urls="+urls+"&initNum="+initNum);
+            xhr.send("urls=" + urls + "&initNum=" + initNum);
 
-            xhr.onreadystatechange = function(response){
+            xhr.onreadystatechange = function (response) {
                 requestData = xhr.responseText.split('*');
                 requestInitNum = requestData[1];
-                console.log("initn um:"+requestInitNum)
 
                 if (xhr.readyState === 3) {
-                    console.log("response");
-//                    data = JSON.parse(xhr.responseText);
-                    xhr.getResponseHeader('');
-                    console.log(initNum);
-
-
-                    $('#listItem_'+requestInitNum).html(xhr.responseText);
-//                    $('#statusP').append(xhr.responseText);
-                    console.log(xhr.responseText);
+                    $('#listItem_' + requestInitNum).html("<h4>Batch #"+requestInitNum+"</h4></br>"+xhr.responseText);
+                    $('.initNumber').hide();
                 }
-//                else if(xhr.readyState === 3){
-//
-//                    $('#progress')
-//                }
-
             };
-            console.log("WOW!!!!!");
-            console.log(urls);
 
         }
     </script>
